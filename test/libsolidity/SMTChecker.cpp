@@ -38,7 +38,6 @@ class SMTCheckerFramework: public AnalysisFramework
 public:
 	SMTCheckerFramework()
 	{
-		m_warningsToFilter.push_back("Experimental features are turned on.");
 	}
 
 protected:
@@ -103,6 +102,7 @@ BOOST_AUTO_TEST_CASE(warn_on_struct)
 		}
 	)";
 	CHECK_WARNING_ALLOW_MULTI(text, (vector<string>{
+		"Experimental feature",
 		"Assertion checker does not yet implement this expression.",
 		"Assertion checker does not yet support the type of this variable."
 	}));
